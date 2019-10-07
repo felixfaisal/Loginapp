@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
 app.set('view engine','ejs')
 app.use('/assets',express.static(__dirname+'/assets'));
 app.use(express.urlencoded({extended:false}));
 var users = [];
+const initp = require('./passport-config.js');
+initp(passport);
 
 app.get('/',(req,res)=>{
   res.render('home');
