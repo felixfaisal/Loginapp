@@ -1,14 +1,16 @@
 const express = require('express');
 const app = express();
+app.set('view engine','ejs')
+app.use('/assets',express.static(__dirname+'/assets'));
 
 app.get('/',(req,res)=>{
-  console.log('Home Page');
+  res.render('home');
 })
 app.get('/login',(req,res)=>{
-  console.log('Login page');
+  res.render('login');
 })
 app.get('/register',(req,res)=>{
-  console.log('Register page');
+  res.render('register');
 })
 app.listen(3000);
 console.log('Listening at 3000');
